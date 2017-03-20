@@ -1,4 +1,4 @@
-# Insert Images ![alt text](https://drive.google.com/open?id=0B3OLYS6IeIR6QmNrSl9sYzdqMXM "Insert Images")
+# Insert Images ![alt text](https://drive.google.com/open?id=0B3OLYS6IeIR6QmNrSl9sYzdqMXM)
 Google Docs add-on to bulk insert images.
 [View in the web store](https://chrome.google.com/webstore/detail/insert-images/cfilpjidehppbipndahohkaaahjemfoc?utm_source=permalink)
 
