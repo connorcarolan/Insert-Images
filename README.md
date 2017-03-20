@@ -2,7 +2,7 @@
 Google Docs add-on to bulk insert images.
 [View in the web store](https://chrome.google.com/webstore/detail/insert-images/cfilpjidehppbipndahohkaaahjemfoc?utm_source=permalink)
 
-![alt text](https://drive.google.com/open?id=0B3OLYS6IeIR6MFc5QTZVMWxBUTQ)
+![alt text](https://github.com/connorcarolan/Insert-Images/blob/master/Insert%20Images%20promo%20Medium(920x680).png)
 
 ** I have provided the code for the option 2x2, in the published version there are more options with very similar code (adjusted for size).**
 
