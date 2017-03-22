@@ -1,22 +1,22 @@
 var numTables = 0
 
-function countFilesInFolder2x2(folderId) {
-  
+function countFilesInFolder2x2(folderId) {  
   var htmlPop = HtmlService.createHtmlOutputFromFile('Alert')
       .setWidth(500)
-      .setHeight(170);
+      .setHeight(140);
   DocumentApp.getUi()
       .showModalDialog(htmlPop, 'Your Photos are being processed, please wait...');
   
-  
+var active = DocumentApp.getActiveDocument().getId();
+var doc = DocumentApp.openById(active);  
+var body = doc.getBody();
+
   var count,file,files,theFolder;
-  var doc = DocumentApp.getActiveDocument();
-  var body = doc.getBody();
   
   body.setMarginBottom(11.5).setMarginLeft(2.9).setMarginRight(2.9).setMarginTop(11.5);
   
   theFolder = DriveApp.getFolderById(folderId);
-  files = theFolder.getFiles();
+  files = theFolder.getFiles();  
 
   count = 0;
 
@@ -24,11 +24,8 @@ function countFilesInFolder2x2(folderId) {
    count++;
    file = files.next();
  };
-  
-  
 numTables = count / 4
 var numTablesN = Math.ceil(numTables);  
-
 var n = 0
 while(n < numTablesN){
  //Add a table in document
@@ -48,7 +45,6 @@ while(n < numTablesN){
   ++n
 }
   
-  
   getFiles2x2(folderId)
 };
 
@@ -65,8 +61,6 @@ function getarrayFiles(folderId) {
 }
 
 function getFiles2x2(output) {
-  var doc = DocumentApp.getActiveDocument();
-  var body = doc.getBody();
   var row = 0
   var cell = 0 // 1 or 0  
   var numRow = 0
@@ -77,7 +71,10 @@ function getFiles2x2(output) {
   var next = getarrayFiles(output);
   var Pcount = 0
   
-  
+  var active = DocumentApp.getActiveDocument().getId();
+var doc = DocumentApp.openById(active);  
+var body = doc.getBody();
+
   while (next.length > 0) {
        var four = next.splice(0, 4)
       
@@ -87,7 +84,7 @@ function getFiles2x2(output) {
   styles[DocumentApp.Attribute.HORIZONTAL_ALIGNMENT] = DocumentApp.HorizontalAlignment.CENTER;
       
       
-      var maxnumTables = Math.ceil(numTables) -1
+      var maxnumTables = Math.ceil(numTables) -1   //because it starts at 0
         
       if (count != 0) {
       if (count % 4 == 0){
@@ -101,15 +98,13 @@ function getFiles2x2(output) {
           
   var findTables = body.getTables()
   var table = findTables[tab]   
-     
-  
   
      var rowI = table.getRow(row);
      var cellI = rowI.getCell(cell);
-      
+     cellI.setText("")
       
      var insImg = cellI.insertImage(0, blob)
-     insImg.getParent().clear().setAttributes(styles);
+     insImg.getParent().setAttributes(styles);
      
       
       
@@ -237,14 +232,14 @@ while(n < tabPCount){
          
   var blob = file.getBlob();
       
-
-      
   var findTables = newBody.getTables()   
   var tableP = findTables[tabP]  
  
      
      var rowI = tableP.getRow(rowP);
      var cellI = rowI.getCell(cellP);
+     cellI.setText("")
+          
      var insImg = cellI.insertImage(0, blob)
      insImg.getParent().setAttributes(styles);
      
